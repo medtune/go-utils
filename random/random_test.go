@@ -111,7 +111,7 @@ func TestNumber(t *testing.T) {
 	}
 }
 
-func TestAlphabetic(t *testing.T) {
+func TestAlpha(t *testing.T) {
 	type args struct {
 		lenght int
 	}
@@ -124,8 +124,8 @@ func TestAlphabetic(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Alphabetic(tt.args.lenght); got != tt.want {
-				t.Errorf("Alphabetic() = %v, want %v", got, tt.want)
+			if got := Alpha(tt.args.lenght); got != tt.want {
+				t.Errorf("Alpha() = %v, want %v", got, tt.want)
 			}
 		})
 	}

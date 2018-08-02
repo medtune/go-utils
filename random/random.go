@@ -57,9 +57,9 @@ func Number(min, max int) int {
 	return min + rand.Intn(max-min)
 }
 
-// Alphabetic return a random string containing
+// Alpha return a random string containing
 // only alphabetic characters (Uper and lower case)
-func Alphabetic(lenght int) string {
+func Alpha(lenght int) string {
 	return randFromRunes(alpha, lenght)
 }
 
