@@ -9,18 +9,19 @@ import (
 // Error is medtune implementation of storing
 // multiple error informations in one object
 type Error struct {
+	Code int64 `json:"code"`
 	// Main message
-	Message string
+	Message string `json:"message"`
 	// Type
-	Type string
+	Type string `json:"type"`
 	// Occure type
-	Time time.Time
+	Time time.Time `json:"time"`
 	// Sub errors
-	SubErrors []error
+	SubErrors []error `json:"sub_errors"`
 }
 
 func errorsToStrings(errs ...error) []string {
-	s := make([]string, len(errs))
+	s := make([]string, 0, len(errs))
 	for _, err := range errs {
 		s = append(s, err.Error())
 	}
@@ -32,7 +33,7 @@ func (e *Error) Error() string {
 	if len(e.SubErrors) == 0 {
 		return fmt.Sprintf("%s", e.Message)
 	}
-	return fmt.Sprintf("%s\n\t%v", e.Message, strings.Join(errorsToStrings(e.SubErrors...), "\n\t"))
+	return fmt.Sprintf("%s\n\t%v\n", e.Message, strings.Join(errorsToStrings(e.SubErrors...), "\n\t"))
 }
 
 // Append adds errors
@@ -47,7 +48,7 @@ func (e *Error) Appendf(format string, a ...interface{}) {
 
 // IsEmpty checks if error is empty
 func (e *Error) IsEmpty() bool {
-	return e.Message == "" && e.Type == "" && len(e.SubErrors) == 0
+	return e.Message == "" && len(e.SubErrors) == 0
 }
 
 // Nil return an empty (represent nil) error
