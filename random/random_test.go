@@ -12,7 +12,11 @@ func Test_randFromRunes(t *testing.T) {
 		args args
 		want string
 	}{
-	// TODO: Add test cases.
+		{
+			"empty",
+			args{runes: []rune{'a', 'b', 'c'}, lenght: 10},
+			"",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -105,7 +109,27 @@ func TestNumber(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Number(tt.args.min, tt.args.max); got != tt.want {
-				t.Errorf("Number() = %v, want %v", got, tt.want)
+				t.Errorf("Numeric() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestNumeric(t *testing.T) {
+	type args struct {
+		lenght int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+	// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Numeric(tt.args.lenght); got != tt.want {
+				t.Errorf("Numeric() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -166,6 +190,26 @@ func TestAlphaUpper(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := AlphaUpper(tt.args.lenght); got != tt.want {
 				t.Errorf("AlphaUpper() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestMixin(t *testing.T) {
+	type args struct {
+		lenght int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+	// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Mixin(tt.args.lenght); got != tt.want {
+				t.Errorf("Mixin() = %v, want %v", got, tt.want)
 			}
 		})
 	}

@@ -12,7 +12,7 @@ var (
 	alphaLow = []rune("abcdefghijklmnopqrstuvwxyz")
 	alpha    = []rune(append(alphaLow, alphaUp...)) // alphaLow + alphaUp
 	numbers  = []rune("0123456789")
-	special  = []rune("&()[]§!-_°*%^`$€=:;,?./+<>")
+	special  = []rune("&()[]§!-_°*%^`'$€£=:;,?./+<>#&%¨")
 	alphaNum = []rune(append(alpha, numbers...)) // alpha + numbers
 	mixin    = []rune(append(alphaNum, special...))
 )
@@ -57,6 +57,12 @@ func Number(min, max int) int {
 	return min + rand.Intn(max-min)
 }
 
+// Numeric return a random int between min
+// and max
+func Numeric(lenght int) string {
+	return randFromRunes(numbers, lenght)
+}
+
 // Alpha return a random string containing
 // only alphabetic characters (Uper and lower case)
 func Alpha(lenght int) string {
@@ -73,4 +79,10 @@ func AlphaLower(lenght int) string {
 // only alphabetic uppercase characters
 func AlphaUpper(lenght int) string {
 	return randFromRunes(alphaUp, lenght)
+}
+
+// Mixin return a random string containing composed of
+// alpha uper/lower numeric special chars
+func Mixin(lenght int) string {
+	return randFromRunes(mixin, lenght)
 }
