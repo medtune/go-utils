@@ -12,11 +12,7 @@ func Test_randFromRunes(t *testing.T) {
 		args args
 		want string
 	}{
-		{
-			"empty",
-			args{runes: []rune{'a', 'b', 'c'}, lenght: 10},
-			"",
-		},
+		{},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
