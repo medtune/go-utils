@@ -37,8 +37,8 @@ func (e *Error) Error() string {
 }
 
 // Append adds errors
-func (e *Error) Append(err error) {
-	e.SubErrors = append(e.SubErrors, err)
+func (e *Error) Append(err ...error) {
+	e.SubErrors = append(e.SubErrors, err...)
 }
 
 // Appendf adds errors
