@@ -1,5 +1,5 @@
-get:
+update-dep:
 	go get -u -t -v ./... 
 
-test:
+test-pkg:
 	go test -u -t -v ./...
