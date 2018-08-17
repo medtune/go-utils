@@ -35,7 +35,7 @@ jobs:
           command: |
             go test -v ./...
 
-  #go-latest
+  #go-latest - TODO GO 1.11
   golang-latest:
     docker:
       - image: circleci/golang:latest
