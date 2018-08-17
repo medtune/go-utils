@@ -50,7 +50,7 @@ jobs:
       - run:
           name: test package
           command: |
-            bash cover.sh
+            bash go.test.sh
             bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 
 workflows:
