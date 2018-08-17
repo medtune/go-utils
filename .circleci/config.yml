@@ -13,7 +13,6 @@ jobs:
           name: installing pkg dependencies
           command: |
             go get -v -t -d ./...
-      
       - run:
           name: test package
           command: |
@@ -31,12 +30,10 @@ jobs:
           name: installing pkg dependencies
           command: |
             go get -v -t -d ./...
-      
       - run:
           name: test package
           command: |
             go test -v ./...
-
 
   #go-latest
   golang-latest:
@@ -50,13 +47,11 @@ jobs:
           name: installing pkg dependencies
           command: |
             go get -v -t -d ./...
-      
       - run:
           name: test package
           command: |
             bash cover.sh
             bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-
 
 workflows:
   version: 2
