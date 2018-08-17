@@ -1,6 +1,6 @@
 # Go-utils
 
-[![CircleCI](https://circleci.com/gh/medtune/go-utils/tree/master.svg?style=svg)](https://circleci.com/gh/medtune/go-utils/tree/master) [![codecov](https://codecov.io/gh/medtune/beta-platform/branch/master/graph/badge.svg)](https://codecov.io/gh/medtune/beta-platform) [![CodeFactor](https://www.codefactor.io/repository/github/medtune/go-utils/badge)](https://www.codefactor.io/repository/github/medtune/go-utils)
+[![CircleCI](https://circleci.com/gh/medtune/go-utils/tree/master.svg?style=svg)](https://circleci.com/gh/medtune/go-utils/tree/master) [![CodeFactor](https://www.codefactor.io/repository/github/medtune/go-utils/badge)](https://www.codefactor.io/repository/github/medtune/go-utils) [![codecov](https://codecov.io/gh/medtune/go-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/medtune/go-utils)
 
 
 A set of Go libraries that provide low-level, independent packages supplementing the Go standard libs.
