@@ -1,6 +1,5 @@
 version: 2
 jobs:
-
   #go-1.9
   golang-1.9:
     docker:
@@ -17,7 +16,7 @@ jobs:
           name: test package
           command: |
             go test -v ./...
-
+            
   #go-1.10
   golang-1.10:
     docker:
