@@ -1,14 +1,10 @@
 package exec
 
 import (
-	"bytes"
 	"context"
-	"fmt"
 	osexec "os/exec"
 	"testing"
 	"time"
-
-	"github.com/medtune/go-utils/exec"
 )
 
 func TestExecutorNoArgs(t *testing.T) {
@@ -126,17 +122,4 @@ func TestTimeout(t *testing.T) {
 	if err != context.DeadlineExceeded {
 		t.Errorf("expected %v but got %v", context.DeadlineExceeded, err)
 	}
-}
-
-func ExampleNew() {
-	exec := exec.New()
-
-	cmd := exec.Command("echo", "Bonjour!")
-	buff := bytes.Buffer{}
-	cmd.SetStdout(&buff)
-	if err := cmd.Run(); err != nil {
-		panic(err)
-	}
-	fmt.Println(buff.String())
-	// Output: Bonjour!
 }
