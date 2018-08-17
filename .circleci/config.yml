@@ -1,24 +1,5 @@
 version: 2
 jobs:
-  
-  #go-1.8
-  golang-1.8:
-    docker:
-      - image: circleci/golang:1.8
-    working_directory: /go/src/github.com/medtune/go-utils
-    steps:
-      - checkout
-
-      - run:
-          name: installing pkg dependencies
-          command: |
-            go get -v -t -d ./...
-      
-      - run:
-          name: test package
-          command: |
-            go test -v ./...
-
 
   #go-1.9
   golang-1.9:
@@ -58,9 +39,9 @@ jobs:
 
 
   #go-latest
-  golang-latest:
+  golang-1.11:
     docker:
-      - image: circleci/golang:latest
+      - image: circleci/golang:1.11
     working_directory: /go/src/github.com/medtune/go-utils
     steps:
       - checkout
@@ -73,13 +54,14 @@ jobs:
       - run:
           name: test package
           command: |
-            go test -v ./...
+            bash cover.sh
+            bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+
 
 workflows:
   version: 2
   build:
     jobs:
-      - golang-1.8
       - golang-1.9
       - golang-1.10
-      - golang-latest
+      - golang-1.11
