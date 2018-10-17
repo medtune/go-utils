@@ -36,6 +36,11 @@ func (e *Error) Error() string {
 	return fmt.Sprintf("%s\n\t%v\n", e.Message, strings.Join(errorsToStrings(e.SubErrors...), "\n\t"))
 }
 
+// Size .
+func (e *Error) Size() int {
+	return len(e.SubErrors)
+}
+
 // Append adds errors
 func (e *Error) Append(err ...error) {
 	e.SubErrors = append(e.SubErrors, err...)
